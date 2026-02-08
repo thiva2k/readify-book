@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Readify - Your personal book recommendation platform">
+    <meta name="theme-color" content="#6366f1">
+    <title>Readify - Discover Your Next Great Read</title>
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">📚 Readify</a>
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="explorer.html">Book Explorer</a></li>
+                <li><a href="tracker.html">Reading Tracker</a></li>
+                <li><a href="recommender.html">Recommender</a></li>
+                <li><a href="reading-flow.html">Reading Flow</a></li>
+                <li><a href="feedback.html">Feedback</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Rotating Quotes -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title fade-in">Discover Your Next Great Read</h1>
+                <div class="quote-container">
+                    <blockquote id="rotatingQuote" class="rotating-quote">
+                        <p class="quote-text"></p>
+                        <cite class="quote-author"></cite>
+                    </blockquote>
+                </div>
+                <a href="explorer.html" class="cta-button">Explore Books</a>
+            </div>
+            <div class="hero-image">
+                <div class="floating-book"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Author of the Day Section -->
+    <section class="author-section">
+        <div class="container">
+            <h2 class="section-title">Author of the Day</h2>
+            <div class="author-card" id="authorOfDay">
+                <div class="author-image">
+                    <div class="author-avatar"></div>
+                </div>
+                <div class="author-info">
+                    <h3 class="author-name"></h3>
+                    <p class="author-bio"></p>
+                    <div class="author-stats">
+                        <span class="stat">
+                            <strong class="books-count"></strong> Books Published
+                        </span>
+                        <span class="stat">
+                            <strong class="genre"></strong>
+                        </span>
+                    </div>
+                    <a href="explorer.html" class="author-link">View Books →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Why Choose Readify?</h2>
+            <div class="features-grid">
+                <div class="feature-card reveal-on-scroll">
+                    <div class="feature-icon">🔍</div>
+                    <h3>Smart Discovery</h3>
+                    <p>Find books tailored to your taste with our intelligent recommendation system</p>
+                </div>
+                <div class="feature-card reveal-on-scroll">
+                    <div class="feature-icon">📊</div>
+                    <h3>Track Progress</h3>
+                    <p>Monitor your reading journey and set achievable goals</p>
+                </div>
+                <div class="feature-card reveal-on-scroll">
+                    <div class="feature-icon">🎵</div>
+                    <h3>Reading Flow</h3>
+                    <p>Enhance your reading experience with ambient sounds</p>
+                </div>
+                <div class="feature-card reveal-on-scroll">
+                    <div class="feature-icon">⭐</div>
+                    <h3>Curated Collections</h3>
+                    <p>Explore handpicked selections from various genres</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <h2>Stay Updated</h2>
+                <p>Subscribe to our newsletter for book recommendations and reading tips</p>
+                <form class="newsletter-form" id="newsletterForm">
+                    <input 
+                        type="email" 
+                        id="newsletterEmail" 
+                        placeholder="Enter your email" 
+                        required
+                    >
+                    <button type="submit" class="subscribe-btn">Subscribe</button>
+                </form>
+                <div id="newsletterMessage" class="form-message"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>📚 Readify</h3>
+                    <p>Your companion for discovering and tracking great reads</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="explorer.html">Book Explorer</a></li>
+                        <li><a href="tracker.html">Reading Tracker</a></li>
+                        <li><a href="recommender.html">Recommender</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>More</h4>
+                    <ul>
+                        <li><a href="reading-flow.html">Reading Flow</a></li>
+                        <li><a href="feedback.html">Feedback</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#privacy">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook">FB</a>
+                        <a href="#" aria-label="Twitter">TW</a>
+                        <a href="#" aria-label="Instagram">IG</a>
+                        <a href="#" aria-label="LinkedIn">IN</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Readify. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/common.js"></script>
+    <script src="js/books-data.js"></script>
+    <script src="js/home.js"></script>
+</body>
+</html>

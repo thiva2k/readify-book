@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wireframe - Home Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .wireframe-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .wireframe-title {
+            text-align: center;
+            color: #333;
+            border-bottom: 3px solid #6366f1;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        .device-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #ddd;
+        }
+        .device-tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            border: none;
+            background: #f0f0f0;
+            border-radius: 5px 5px 0 0;
+        }
+        .device-tab.active {
+            background: #6366f1;
+            color: white;
+        }
+        .wireframe {
+            border: 3px solid #333;
+            background: white;
+            margin: 0 auto;
+        }
+        .desktop { width: 100%; }
+        .tablet { width: 768px; }
+        .mobile { width: 375px; }
+        
+        /* Wireframe Elements */
+        .wf-nav {
+            background: #e0e0e0;
+            padding: 20px;
+            border-bottom: 2px solid #333;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .wf-logo {
+            background: #6366f1;
+            color: white;
+            padding: 10px 20px;
+            font-weight: bold;
+        }
+        .wf-menu {
+            display: flex;
+            gap: 20px;
+        }
+        .wf-menu-item {
+            background: #f5f5f5;
+            padding: 8px 15px;
+            border: 1px solid #999;
+        }
+        .wf-hamburger {
+            display: none;
+            background: #333;
+            color: white;
+            padding: 10px;
+            width: 40px;
+            height: 40px;
+            text-align: center;
+        }
+        .wf-hero {
+            background: linear-gradient(135deg, #e8eafd, #d5d8f7);
+            padding: 60px 40px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            border-bottom: 2px solid #333;
+        }
+        .wf-hero-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .wf-quote-box {
+            background: white;
+            border: 2px dashed #6366f1;
+            padding: 30px;
+            margin: 20px 0;
+            font-style: italic;
+        }
+        .wf-cta-button {
+            background: #6366f1;
+            color: white;
+            padding: 15px 40px;
+            display: inline-block;
+            font-weight: bold;
+            border: 2px solid #333;
+        }
+        .wf-hero-image {
+            background: #f0f0f0;
+            border: 2px solid #999;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+        .wf-section {
+            padding: 60px 40px;
+            border-bottom: 2px solid #ddd;
+        }
+        .wf-section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 40px;
+            color: #333;
+        }
+        .wf-author-card {
+            background: #f9f9f9;
+            border: 2px solid #333;
+            padding: 30px;
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 30px;
+        }
+        .wf-author-image {
+            background: #6366f1;
+            height: 200px;
+            border: 2px solid #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+        .wf-features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+        .wf-feature-card {
+            background: white;
+            border: 2px solid #999;
+            padding: 30px;
+            text-align: center;
+        }
+        .wf-feature-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+        .wf-newsletter {
+            background: #6366f1;
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+        }
+        .wf-newsletter-form {
+            background: white;
+            display: flex;
+            max-width: 500px;
+            margin: 20px auto;
+            border: 2px solid #333;
+        }
+        .wf-input {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            background: #f5f5f5;
+        }
+        .wf-submit {
+            background: #ec4899;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            font-weight: bold;
+        }
+        .wf-footer {
+            background: #333;
+            color: white;
+            padding: 40px;
+        }
+        .wf-footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-bottom: 20px;
+        }
+        .wf-footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #666;
+        }
+        
+        /* Annotations */
+        .annotation {
+            background: #fff3cd;
+            border: 2px solid #ff9800;
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 14px;
+            border-radius: 5px;
+        }
+        .annotation-label {
+            font-weight: bold;
+            color: #ff9800;
+        }
+        
+        /* Mobile Wireframe Styles */
+        @media (max-width: 768px) {
+            .wf-menu { display: none; }
+            .wf-hamburger { display: block; }
+            .wf-hero { grid-template-columns: 1fr; }
+            .wf-hero-image { display: none; }
+            .wf-features-grid { grid-template-columns: 1fr; }
+            .wf-author-card { grid-template-columns: 1fr; }
+            .wf-footer-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="wireframe-container">
+        <h1 class="wireframe-title">📱 Home Page Wireframe</h1>
+        
+        <div class="annotation">
+            <div class="annotation-label">📐 Design Notes:</div>
+            Mobile-first responsive design with breakpoints at 768px (tablet) and 1024px (desktop).
+            Color scheme: Indigo primary (#6366f1), Pink secondary (#ec4899), neutral grays.
+        </div>
+
+        <div class="device-tabs">
+            <button class="device-tab active">💻 Desktop (1200px)</button>
+            <button class="device-tab">📱 Tablet (768px)</button>
+            <button class="device-tab">📱 Mobile (375px)</button>
+        </div>
+
+        <div class="wireframe desktop">
+            <!-- Navigation -->
+            <div class="wf-nav">
+                <div class="wf-logo">📚 Readify</div>
+                <div class="wf-menu">
+                    <div class="wf-menu-item">Home</div>
+                    <div class="wf-menu-item">Book Explorer</div>
+                    <div class="wf-menu-item">Reading Tracker</div>
+                    <div class="wf-menu-item">Recommender</div>
+                    <div class="wf-menu-item">Reading Flow</div>
+                    <div class="wf-menu-item">Feedback</div>
+                </div>
+                <div class="wf-hamburger">☰</div>
+            </div>
+            
+            <div class="annotation">
+                <div class="annotation-label">🎨 Navigation:</div>
+                Sticky navigation bar with logo on left, menu items on right. 
+                Hamburger menu appears on mobile (<768px). Active state indicated with underline.
+            </div>
+
+            <!-- Hero Section -->
+            <div class="wf-hero">
+                <div class="wf-hero-content">
+                    <h1>Discover Your Next Great Read</h1>
+                    <div class="wf-quote-box">
+                        <p>"A reader lives a thousand lives..."</p>
+                        <p style="text-align: right; margin-top: 10px;">— George R.R. Martin</p>
+                    </div>
+                    <div class="annotation" style="background: #e3f2fd; border-color: #2196f3;">
+                        <div class="annotation-label" style="color: #2196f3;">⚡ JavaScript:</div>
+                        Auto-rotating quotes change every 5 seconds with fade transition
+                    </div>
+                    <div class="wf-cta-button">Explore Books →</div>
+                </div>
+                <div class="wf-hero-image">
+                    📚<br>
+                    <span style="font-size: 1rem;">Floating Book Animation</span>
+                </div>
+            </div>
+
+            <!-- Author of the Day -->
+            <div class="wf-section">
+                <h2 class="wf-section-title">Author of the Day</h2>
+                <div class="annotation" style="background: #e3f2fd; border-color: #2196f3;">
+                    <div class="annotation-label" style="color: #2196f3;">⚡ JavaScript:</div>
+                    Changes daily based on date calculation (dayOfYear % authorsArray.length)
+                </div>
+                <div class="wf-author-card">
+                    <div class="wf-author-image">👤</div>
+                    <div>
+                        <h3 style="color: #6366f1; margin-bottom: 10px;">Matt Haig</h3>
+                        <p style="color: #666; margin-bottom: 20px;">
+                            Matt Haig is an English author known for fiction and non-fiction books exploring mental health themes...
+                        </p>
+                        <div style="display: flex; gap: 30px; margin-bottom: 20px;">
+                            <div>
+                                <strong style="font-size: 1.2rem; color: #333;">12</strong>
+                                <div style="color: #666; font-size: 0.9rem;">Books Published</div>
+                            </div>
+                            <div>
+                                <strong style="font-size: 1.2rem; color: #333;">Fiction</strong>
+                                <div style="color: #666; font-size: 0.9rem;">Genre</div>
+                            </div>
+                        </div>
+                        <a href="#" style="color: #6366f1; font-weight: bold;">View Books →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Features Section -->
+            <div class="wf-section" style="background: #f9f9f9;">
+                <h2 class="wf-section-title">Why Choose Readify?</h2>
+                <div class="wf-features-grid">
+                    <div class="wf-feature-card">
+                        <div class="wf-feature-icon">🔍</div>
+                        <h4>Smart Discovery</h4>
+                        <p style="color: #666; font-size: 0.9rem;">
+                            Find books tailored to your taste
+                        </p>
+                    </div>
+                    <div class="wf-feature-card">
+                        <div class="wf-feature-icon">📊</div>
+                        <h4>Track Progress</h4>
+                        <p style="color: #666; font-size: 0.9rem;">
+                            Monitor your reading journey
+                        </p>
+                    </div>
+                    <div class="wf-feature-card">
+                        <div class="wf-feature-icon">🎵</div>
+                        <h4>Reading Flow</h4>
+                        <p style="color: #666; font-size: 0.9rem;">
+                            Ambient sounds for focus
+                        </p>
+                    </div>
+                    <div class="wf-feature-card">
+                        <div class="wf-feature-icon">⭐</div>
+                        <h4>Curated Collections</h4>
+                        <p style="color: #666; font-size: 0.9rem;">
+                            Handpicked selections
+                        </p>
+                    </div>
+                </div>
+                <div class="annotation">
+                    <div class="annotation-label">🎨 Layout:</div>
+                    4-column grid on desktop, 2-column on tablet, 1-column on mobile.
+                    Reveal-on-scroll animation using Intersection Observer.
+                </div>
+            </div>
+
+            <!-- Newsletter -->
+            <div class="wf-newsletter">
+                <h2 style="margin-bottom: 10px;">Stay Updated</h2>
+                <p style="margin-bottom: 30px; opacity: 0.9;">
+                    Subscribe for book recommendations and reading tips
+                </p>
+                <div class="wf-newsletter-form">
+                    <div class="wf-input">Enter your email</div>
+                    <div class="wf-submit">Subscribe</div>
+                </div>
+                <div class="annotation" style="margin-top: 20px;">
+                    <div class="annotation-label">⚡ JavaScript:</div>
+                    Email validation, localStorage storage, duplicate detection, success message
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="wf-footer">
+                <div class="wf-footer-grid">
+                    <div>
+                        <h4>📚 Readify</h4>
+                        <p style="opacity: 0.8; font-size: 0.9rem;">
+                            Your companion for discovering great reads
+                        </p>
+                    </div>
+                    <div>
+                        <h4>Quick Links</h4>
+                        <div style="display: flex; flex-direction: column; gap: 8px; font-size: 0.9rem;">
+                            <a href="#" style="color: rgba(255,255,255,0.8); text-decoration: none;">Home</a>
+                            <a href="#" style="color: rgba(255,255,255,0.8); text-decoration: none;">Book Explorer</a>
+                            <a href="#" style="color: rgba(255,255,255,0.8); text-decoration: none;">Tracker</a>
+                        </div>
+                    </div>
+                    <div>
+                        <h4>More</h4>
+                        <div style="display: flex; flex-direction: column; gap: 8px; font-size: 0.9rem;">
+                            <a href="#" style="color: rgba(255,255,255,0.8); text-decoration: none;">Reading Flow</a>
+                            <a href="#" style="color: rgba(255,255,255,0.8); text-decoration: none;">Feedback</a>
+                            <a href="#" style="color: rgba(255,255,255,0.8); text-decoration: none;">About</a>
+                        </div>
+                    </div>
+                    <div>
+                        <h4>Connect</h4>
+                        <div style="display: flex; gap: 10px; margin-top: 10px;">
+                            <div style="background: rgba(255,255,255,0.1); padding: 10px; border-radius: 5px;">FB</div>
+                            <div style="background: rgba(255,255,255,0.1); padding: 10px; border-radius: 5px;">TW</div>
+                            <div style="background: rgba(255,255,255,0.1); padding: 10px; border-radius: 5px;">IG</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="wf-footer-bottom">
+                    <p>© 2025 Readify. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="annotation" style="margin-top: 30px; background: #e8f5e9; border-color: #4caf50;">
+            <div class="annotation-label" style="color: #4caf50;">✅ Responsive Strategy:</div>
+            <strong>Desktop (1024px+):</strong> Full grid layouts, side-by-side content<br>
+            <strong>Tablet (768-1023px):</strong> 2-column grids, stacked hero<br>
+            <strong>Mobile (<768px):</strong> Single column, hamburger menu, touch-optimized
+        </div>
+    </div>
+
+    <script>
+        // Simple tab switching for demonstration
+        const tabs = document.querySelectorAll('.device-tab');
+        const wireframe = document.querySelector('.wireframe');
+        
+        tabs.forEach((tab, index) => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                
+                wireframe.className = 'wireframe';
+                if (index === 0) wireframe.classList.add('desktop');
+                if (index === 1) wireframe.classList.add('tablet');
+                if (index === 2) wireframe.classList.add('mobile');
+            });
+        });
+    </script>
+</body>
+</html>

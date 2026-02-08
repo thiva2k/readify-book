@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Track your reading progress">
+    <meta name="theme-color" content="#6366f1">
+    <title>Reading Tracker - Readify</title>
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">📚 Readify</a>
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="explorer.html">Book Explorer</a></li>
+                <li><a href="tracker.html" class="active">Reading Tracker</a></li>
+                <li><a href="recommender.html">Recommender</a></li>
+                <li><a href="reading-flow.html">Reading Flow</a></li>
+                <li><a href="feedback.html">Feedback</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="container">
+            <h1>Reading Progress Tracker</h1>
+            <p>Track your reading journey and estimate completion time</p>
+        </div>
+    </header>
+
+    <!-- Tracker Form -->
+    <section class="tracker-section">
+        <div class="container">
+            <div class="tracker-container">
+                <div class="tracker-form-card">
+                    <h2>Enter Book Details</h2>
+                    <form id="trackerForm">
+                        <div class="form-group">
+                            <label for="bookTitle">Book Title</label>
+                            <input 
+                                type="text" 
+                                id="bookTitle" 
+                                placeholder="Enter the book title"
+                                required
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="totalPages">Total Pages</label>
+                            <input 
+                                type="number" 
+                                id="totalPages" 
+                                placeholder="e.g., 350"
+                                min="1"
+                                required
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="pagesRead">Pages Read</label>
+                            <input 
+                                type="number" 
+                                id="pagesRead" 
+                                placeholder="e.g., 120"
+                                min="0"
+                                required
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="readingSpeed">Daily Reading Speed (pages/day)</label>
+                            <input 
+                                type="number" 
+                                id="readingSpeed" 
+                                placeholder="e.g., 25"
+                                min="1"
+                                required
+                            >
+                        </div>
+
+                        <button type="submit" class="btn-primary">Calculate Progress</button>
+                    </form>
+                </div>
+
+                <!-- Results Display -->
+                <div class="tracker-results" id="trackerResults" style="display: none;">
+                    <h2>Your Reading Progress</h2>
+                    
+                    <div class="result-card">
+                        <h3 id="resultBookTitle"></h3>
+                        
+                        <div class="progress-stats">
+                            <div class="stat-item">
+                                <span class="stat-label">Pages Read</span>
+                                <span class="stat-value" id="statPagesRead"></span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Total Pages</span>
+                                <span class="stat-value" id="statTotalPages"></span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Completion</span>
+                                <span class="stat-value percentage" id="statPercentage"></span>
+                            </div>
+                        </div>
+
+                        <div class="progress-bar-container">
+                            <div class="progress-bar" id="progressBar">
+                                <div class="progress-fill" id="progressFill"></div>
+                            </div>
+                        </div>
+
+                        <div class="estimate-section">
+                            <div class="estimate-card">
+                                <div class="estimate-icon">📅</div>
+                                <div class="estimate-content">
+                                    <h4>Estimated Completion</h4>
+                                    <p id="estimatedDays" class="estimate-value"></p>
+                                    <p id="estimatedDate" class="estimate-date"></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="action-buttons">
+                            <button id="saveProgress" class="btn-secondary">Save Progress</button>
+                            <button id="resetTracker" class="btn-outline">New Book</button>
+                        </div>
+
+                        <div id="saveMessage" class="save-message"></div>
+                    </div>
+                </div>
+
+                <!-- Saved Progress -->
+                <div class="saved-progress" id="savedProgressSection" style="display: none;">
+                    <h3>Saved Books</h3>
+                    <div id="savedBooksList" class="saved-books-list">
+                        <!-- Saved books will be populated here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>📚 Readify</h3>
+                    <p>Your companion for discovering and tracking great reads</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="explorer.html">Book Explorer</a></li>
+                        <li><a href="tracker.html">Reading Tracker</a></li>
+                        <li><a href="recommender.html">Recommender</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>More</h4>
+                    <ul>
+                        <li><a href="reading-flow.html">Reading Flow</a></li>
+                        <li><a href="feedback.html">Feedback</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#privacy">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook">FB</a>
+                        <a href="#" aria-label="Twitter">TW</a>
+                        <a href="#" aria-label="Instagram">IG</a>
+                        <a href="#" aria-label="LinkedIn">IN</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Readify. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/common.js"></script>
+    <script src="js/tracker.js"></script>
+</body>
+</html>

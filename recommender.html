@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Get personalized book recommendations">
+    <meta name="theme-color" content="#6366f1">
+    <title>Book Recommender - Readify</title>
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">📚 Readify</a>
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="explorer.html">Book Explorer</a></li>
+                <li><a href="tracker.html">Reading Tracker</a></li>
+                <li><a href="recommender.html" class="active">Recommender</a></li>
+                <li><a href="reading-flow.html">Reading Flow</a></li>
+                <li><a href="feedback.html">Feedback</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="container">
+            <h1>Random Book Recommender</h1>
+            <p>Let us suggest your next great read</p>
+        </div>
+    </header>
+
+    <!-- Recommender Section -->
+    <section class="recommender-section">
+        <div class="container">
+            <div class="recommender-container">
+                <!-- Selection Form -->
+                <div class="selection-card">
+                    <h2>What Are You in the Mood For?</h2>
+                    <form id="recommenderForm">
+                        <div class="form-group">
+                            <label for="genreSelect">Select Genre</label>
+                            <select id="genreSelect" required>
+                                <option value="">Choose a genre...</option>
+                                <option value="fiction">Fiction</option>
+                                <option value="fantasy">Fantasy</option>
+                                <option value="sci-fi">Science Fiction</option>
+                                <option value="mystery">Mystery</option>
+                                <option value="romance">Romance</option>
+                                <option value="thriller">Thriller</option>
+                                <option value="historical">Historical Fiction</option>
+                                <option value="non-fiction">Non-Fiction</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="lengthSelect">Book Length</label>
+                            <select id="lengthSelect" required>
+                                <option value="">Choose length...</option>
+                                <option value="short">Short (Under 250 pages)</option>
+                                <option value="medium">Medium (250-450 pages)</option>
+                                <option value="long">Long (450+ pages)</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="btn-primary">Get Recommendation</button>
+                    </form>
+                </div>
+
+                <!-- Recommendation Display -->
+                <div class="recommendation-card" id="recommendationCard" style="display: none;">
+                    <div class="recommendation-header">
+                        <h2>We Recommend...</h2>
+                        <button id="pickAgain" class="btn-icon" aria-label="Get another recommendation">🔄</button>
+                    </div>
+
+                    <div class="recommended-book">
+                        <div class="book-cover-large" id="recBookCover"></div>
+                        <div class="book-info">
+                            <h3 id="recTitle"></h3>
+                            <p class="book-author" id="recAuthor"></p>
+                            <div class="book-meta">
+                                <span class="genre-badge" id="recGenre"></span>
+                                <span class="pages-badge" id="recPages"></span>
+                            </div>
+                            <p class="book-synopsis" id="recSynopsis"></p>
+                            
+                            <div class="recommendation-actions">
+                                <button id="addToList" class="btn-secondary">
+                                    <span class="btn-icon">➕</span> Add to Reading List
+                                </button>
+                                <a href="explorer.html" class="btn-outline">Browse More Books</a>
+                            </div>
+
+                            <div id="addMessage" class="add-message"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Reading List -->
+                <div class="reading-list-card" id="readingListCard" style="display: none;">
+                    <h3>Your Reading List</h3>
+                    <div id="readingList" class="reading-list">
+                        <!-- Reading list items will be populated here -->
+                    </div>
+                    <button id="clearList" class="btn-outline-small">Clear List</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>📚 Readify</h3>
+                    <p>Your companion for discovering and tracking great reads</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="explorer.html">Book Explorer</a></li>
+                        <li><a href="tracker.html">Reading Tracker</a></li>
+                        <li><a href="recommender.html">Recommender</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>More</h4>
+                    <ul>
+                        <li><a href="reading-flow.html">Reading Flow</a></li>
+                        <li><a href="feedback.html">Feedback</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#privacy">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook">FB</a>
+                        <a href="#" aria-label="Twitter">TW</a>
+                        <a href="#" aria-label="Instagram">IG</a>
+                        <a href="#" aria-label="LinkedIn">IN</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Readify. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/common.js"></script>
+    <script src="js/books-data.js"></script>
+    <script src="js/recommender.js"></script>
+</body>
+</html>

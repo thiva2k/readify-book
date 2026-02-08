@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Enhance your reading experience with ambient sounds">
+    <meta name="theme-color" content="#6366f1">
+    <title>Reading Flow - Readify</title>
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">📚 Readify</a>
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="explorer.html">Book Explorer</a></li>
+                <li><a href="tracker.html">Reading Tracker</a></li>
+                <li><a href="recommender.html">Recommender</a></li>
+                <li><a href="reading-flow.html" class="active">Reading Flow</a></li>
+                <li><a href="feedback.html">Feedback</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="container">
+            <h1>Reading Flow</h1>
+            <p>Create the perfect reading atmosphere</p>
+        </div>
+    </header>
+
+    <!-- Ambient Sounds Section -->
+    <section class="ambient-section">
+        <div class="container">
+            <div class="ambient-container">
+                <h2>Ambient Sounds</h2>
+                <p class="section-subtitle">Enhance your reading experience with calming background sounds</p>
+                
+                <div class="sounds-grid">
+                    <div class="sound-card">
+                        <div class="sound-icon">🌧️</div>
+                        <h3>Rain</h3>
+                        <p>Gentle rainfall</p>
+                        <button class="sound-toggle" data-sound="rain">
+                            <span class="play-icon">▶️</span>
+                            <span class="pause-icon" style="display: none;">⏸️</span>
+                        </button>
+                        <input type="range" class="volume-slider" data-sound="rain" min="0" max="100" value="50">
+                    </div>
+
+                    <div class="sound-card">
+                        <div class="sound-icon">🔥</div>
+                        <h3>Fireplace</h3>
+                        <p>Crackling fire</p>
+                        <button class="sound-toggle" data-sound="fire">
+                            <span class="play-icon">▶️</span>
+                            <span class="pause-icon" style="display: none;">⏸️</span>
+                        </button>
+                        <input type="range" class="volume-slider" data-sound="fire" min="0" max="100" value="50">
+                    </div>
+
+                    <div class="sound-card">
+                        <div class="sound-icon">🌊</div>
+                        <h3>Ocean Waves</h3>
+                        <p>Peaceful waves</p>
+                        <button class="sound-toggle" data-sound="ocean">
+                            <span class="play-icon">▶️</span>
+                            <span class="pause-icon" style="display: none;">⏸️</span>
+                        </button>
+                        <input type="range" class="volume-slider" data-sound="ocean" min="0" max="100" value="50">
+                    </div>
+
+                    <div class="sound-card">
+                        <div class="sound-icon">🌲</div>
+                        <h3>Forest</h3>
+                        <p>Nature sounds</p>
+                        <button class="sound-toggle" data-sound="forest">
+                            <span class="play-icon">▶️</span>
+                            <span class="pause-icon" style="display: none;">⏸️</span>
+                        </button>
+                        <input type="range" class="volume-slider" data-sound="forest" min="0" max="100" value="50">
+                    </div>
+
+                    <div class="sound-card">
+                        <div class="sound-icon">☕</div>
+                        <h3>Coffee Shop</h3>
+                        <p>Ambient chatter</p>
+                        <button class="sound-toggle" data-sound="cafe">
+                            <span class="play-icon">▶️</span>
+                            <span class="pause-icon" style="display: none;">⏸️</span>
+                        </button>
+                        <input type="range" class="volume-slider" data-sound="cafe" min="0" max="100" value="50">
+                    </div>
+
+                    <div class="sound-card">
+                        <div class="sound-icon">⚡</div>
+                        <h3>Thunderstorm</h3>
+                        <p>Thunder & rain</p>
+                        <button class="sound-toggle" data-sound="thunder">
+                            <span class="play-icon">▶️</span>
+                            <span class="pause-icon" style="display: none;">⏸️</span>
+                        </button>
+                        <input type="range" class="volume-slider" data-sound="thunder" min="0" max="100" value="50">
+                    </div>
+                </div>
+
+                <div class="sound-controls">
+                    <button id="stopAll" class="btn-outline">Stop All Sounds</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Completed Books Section -->
+    <section class="completed-books-section">
+        <div class="container">
+            <div class="completed-container">
+                <h2>Track Completed Books</h2>
+                <p class="section-subtitle">Keep a record of books you've finished</p>
+
+                <form id="completeBookForm" class="complete-book-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="completedTitle">Book Title</label>
+                            <input 
+                                type="text" 
+                                id="completedTitle" 
+                                placeholder="Enter book title"
+                                required
+                            >
+                        </div>
+                        <div class="form-group">
+                            <label for="completedAuthor">Author</label>
+                            <input 
+                                type="text" 
+                                id="completedAuthor" 
+                                placeholder="Author name"
+                                required
+                            >
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="completedDate">Date Completed</label>
+                            <input 
+                                type="date" 
+                                id="completedDate" 
+                                required
+                            >
+                        </div>
+                        <div class="form-group">
+                            <label for="bookRating">Your Rating</label>
+                            <select id="bookRating" required>
+                                <option value="">Rate this book</option>
+                                <option value="5">⭐⭐⭐⭐⭐ (5 stars)</option>
+                                <option value="4">⭐⭐⭐⭐ (4 stars)</option>
+                                <option value="3">⭐⭐⭐ (3 stars)</option>
+                                <option value="2">⭐⭐ (2 stars)</option>
+                                <option value="1">⭐ (1 star)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-primary">Add to Completed Books</button>
+                </form>
+
+                <div id="completedMessage" class="form-message"></div>
+
+                <!-- Completed Books List -->
+                <div class="completed-books-list" id="completedBooksList">
+                    <h3>Your Completed Books (<span id="completedCount">0</span>)</h3>
+                    <div id="booksGrid" class="completed-grid">
+                        <!-- Completed books will be populated here -->
+                    </div>
+                    <div id="emptyState" class="empty-state">
+                        <p>No completed books yet. Start tracking your reading journey!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>📚 Readify</h3>
+                    <p>Your companion for discovering and tracking great reads</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="explorer.html">Book Explorer</a></li>
+                        <li><a href="tracker.html">Reading Tracker</a></li>
+                        <li><a href="recommender.html">Recommender</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>More</h4>
+                    <ul>
+                        <li><a href="reading-flow.html">Reading Flow</a></li>
+                        <li><a href="feedback.html">Feedback</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#privacy">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook">FB</a>
+                        <a href="#" aria-label="Twitter">TW</a>
+                        <a href="#" aria-label="Instagram">IG</a>
+                        <a href="#" aria-label="LinkedIn">IN</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Readify. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/common.js"></script>
+    <script src="js/reading-flow.js"></script>
+</body>
+</html>
