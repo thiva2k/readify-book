@@ -204,17 +204,36 @@ function loadSavedProgress() {
     savedBooks.forEach(book => {
         const bookItem = document.createElement('div');
         bookItem.className = 'saved-book-item';
-        bookItem.innerHTML = `
-            <div class="saved-book-info">
-                <h4>${book.bookTitle}</h4>
-                <div class="saved-book-meta">
-                    <span>${book.percentage}% complete</span>
-                    <span>${book.pagesRead} / ${book.totalPages} pages</span>
-                    <span>Saved: ${new Date(book.savedAt).toLocaleDateString()}</span>
-                </div>
-            </div>
-            <button class="btn-remove" onclick="removeSavedBook('${book.id}')">Remove</button>
-        `;
+
+        const info = document.createElement('div');
+        info.className = 'saved-book-info';
+
+        const title = document.createElement('h4');
+        title.textContent = book.bookTitle;
+
+        const meta = document.createElement('div');
+        meta.className = 'saved-book-meta';
+
+        const percent = document.createElement('span');
+        percent.textContent = `${book.percentage}% complete`;
+        const pages = document.createElement('span');
+        pages.textContent = `${book.pagesRead} / ${book.totalPages} pages`;
+        const saved = document.createElement('span');
+        saved.textContent = `Saved: ${new Date(book.savedAt).toLocaleDateString()}`;
+
+        meta.appendChild(percent);
+        meta.appendChild(pages);
+        meta.appendChild(saved);
+        info.appendChild(title);
+        info.appendChild(meta);
+
+        const removeBtn = document.createElement('button');
+        removeBtn.className = 'btn-remove';
+        removeBtn.textContent = 'Remove';
+        removeBtn.addEventListener('click', () => removeSavedBook(book.id));
+
+        bookItem.appendChild(info);
+        bookItem.appendChild(removeBtn);
         savedList.appendChild(bookItem);
     });
 }

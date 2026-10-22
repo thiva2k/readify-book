@@ -376,21 +376,38 @@ function loadCompletedBooks() {
     completedBooks.forEach(book => {
         const bookItem = document.createElement('div');
         bookItem.className = 'completed-book-item';
-        
+
         const stars = '⭐'.repeat(book.rating);
-        
-        bookItem.innerHTML = `
-            <div class="completed-book-info">
-                <h4>${book.title}</h4>
-                <div class="completed-book-meta">
-                    <span>by ${book.author}</span>
-                    <span>${stars}</span>
-                    <span>Completed: ${formatDate(book.completedDate)}</span>
-                </div>
-            </div>
-            <button class="btn-remove" onclick="removeCompletedBook('${book.id}')">Remove</button>
-        `;
-        
+
+        const info = document.createElement('div');
+        info.className = 'completed-book-info';
+
+        const title = document.createElement('h4');
+        title.textContent = book.title;
+
+        const meta = document.createElement('div');
+        meta.className = 'completed-book-meta';
+
+        const author = document.createElement('span');
+        author.textContent = `by ${book.author}`;
+        const rating = document.createElement('span');
+        rating.textContent = stars;
+        const completed = document.createElement('span');
+        completed.textContent = `Completed: ${formatDate(book.completedDate)}`;
+
+        meta.appendChild(author);
+        meta.appendChild(rating);
+        meta.appendChild(completed);
+        info.appendChild(title);
+        info.appendChild(meta);
+
+        const removeBtn = document.createElement('button');
+        removeBtn.className = 'btn-remove';
+        removeBtn.textContent = 'Remove';
+        removeBtn.addEventListener('click', () => removeCompletedBook(book.id));
+
+        bookItem.appendChild(info);
+        bookItem.appendChild(removeBtn);
         booksGrid.appendChild(bookItem);
     });
 }
